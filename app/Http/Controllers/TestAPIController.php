@@ -24,15 +24,9 @@ class TestAPIController extends Controller
         $link = pg_connect($conn_string);
         //echo "接続しました．";
         $flag=0;
-        $ID=0;
         $sql_bef="SELECT * FROM recipes";
         $resultNew = pg_query($link, $sql_bef);
-        $resultNew2 = pg_query($link, $sql_bef);
-        while ($rowNew = pg_fetch_row($resultNew)) {
-          $ID=$ID+1;
-      }
-        $rowsNew["length"]=$ID;
-          while ($rowNew = pg_fetch_row($resultNew2)) {
+          while ($rowNew = pg_fetch_row($resultNew)) {
             $rowsNew["recipes"][]=$rowNew;
             $flag=1;
         }
