@@ -24,9 +24,15 @@ class TestAPIController extends Controller
         $link = pg_connect($conn_string);
         //echo "接続しました．";
         $flag=0;
+        $ID=0;
         $sql_bef="SELECT * FROM recipes";
         $resultNew = pg_query($link, $sql_bef);
-          while ($rowNew = pg_fetch_row($resultNew)) {
+        $resultNew2 = pg_query($link, $sql_bef);
+        while ($rowNew = pg_fetch_row($resultNew)) {
+          $ID=$ID+1;
+      }
+        $rowsNew["length"]=$ID;
+          while ($rowNew = pg_fetch_row($resultNew2)) {
             $rowsNew["recipes"][]=$rowNew;
             $flag=1;
         }
@@ -52,7 +58,7 @@ class TestAPIController extends Controller
       else if ($DB_CONNECTION == "pgsql") {
         $conn_string = "host=".$HOST." port=".$DB_PORT." dbname=".$DB_DATABASE." user=".$DB_USERNAME." password=".$DB_PASSWORD;
         $link = pg_connect($conn_string);
-        echo "接続しました．";
+        //echo "接続しました．";
         $sql_bef="SELECT * FROM recipes";
         $resultNew = pg_query($link, $sql_bef);
         $flag=0;
