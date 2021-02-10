@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-
+/*
 Route::get('/{any}', function(){
     return view('welcome');
 })->where('any', '^(?!api).*$');
+*/
+Route::get('recipes', [TestAPIController::class, 'getAll']);
+Route::get('recipes/{ID}',[TestAPIController::class, 'getID']);
+Route::post('recipes', [TestAPIController::class, 'post']);
+Route::patch('recipes/{ID}',[TestAPIController::class, 'patch']);
+Route::delete('recipes/{ID}',[TestAPIController::class, 'delete']);

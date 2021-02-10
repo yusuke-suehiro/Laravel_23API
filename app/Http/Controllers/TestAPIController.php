@@ -8,8 +8,6 @@ class TestAPIController extends Controller
 {
   public function getAll()
    {
-     $cost = $_GET["cost"];
-     echo cost;
       date_default_timezone_set('Asia/Tokyo');
       $NowDate=date("Y/m/d H:i:s");
       $DB_CONNECTION=$_ENV["DB_CONNECTION"];
@@ -109,7 +107,7 @@ class TestAPIController extends Controller
    		   return 'deleteでーす';
       }
       public function error($message)
-       {    
+       {
     		   return 'Not found '.$message;
        }
 }
