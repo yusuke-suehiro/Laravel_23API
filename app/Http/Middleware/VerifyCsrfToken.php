@@ -11,7 +11,11 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array
      */
+
     protected $except = [
-        //
+        "http://localhost:8000/recipes/",
+        "http://localhost:8000/recipes/*",
+        "https://suehiro-restfulapi.herokuapp.com/recipes/",
+        "https://suehiro-restfulapi.herokuapp.com/recipes/*",
     ];
 }

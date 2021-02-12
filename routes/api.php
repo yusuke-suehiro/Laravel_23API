@@ -21,9 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 //Route::get('test', 'TestAPIController@index');
-
+/*
 Route::get('recipes', [TestAPIController::class, 'getAll']);
 Route::get('recipes/{ID}',[TestAPIController::class, 'getID']);
 Route::post('recipes', [TestAPIController::class, 'post']);
 Route::patch('recipes/{ID}',[TestAPIController::class, 'patch']);
 Route::delete('recipes/{ID}',[TestAPIController::class, 'delete']);
+*/
